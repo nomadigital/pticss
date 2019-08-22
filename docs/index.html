@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>ptiCSS | Small Unintrusive Responsive CSS Framework</title>
+  <!-- DEV -->
+  <!-- <link rel="stylesheet" href="../pti.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <!-- PROD -->
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/ibbtek/pticss/master/dist/pti.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div id="app">
+    <div id="top" class="pti-container">
+      <nav class="pti-nav">
+        <input id="responsive-menu" type="checkbox">
+        <label for="responsive-menu"><span id="pti-menu-icon"></span></label>
+        <div id="pti-overlay"></div>
+        <ul>
+          <li>
+            <a href="#" @click="goTo('home')">
+              <img class="pti-icon" src="https://icongr.am/material/home.svg?size=24">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" @click="goTo('demo')">
+              <img class="pti-icon" src="https://icongr.am/material/test-tube.svg?size=24">
+              Demo
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ibbtek/pticss">
+              <img class="pti-icon" src="https://icongr.am/material/github-circle.svg?size=24">
+              Github
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <router-view></router-view>
+    </div>
+  </div>
+</body>
+<!-- IMPORTS -->
+<script src="./components/home.js"></script>
+<script src="./components/demo.js"></script>
+<script src="./router/routes.js"></script>
+<script src="./router/router.js"></script>
+
+<!-- HOME PAGE TEMPLATE -->
+<script type="text/x-template" id="pticss-home">
+  <div>
+    <header>
+      <div class="pti-text-primary pti-full-screen pti-vertical-align pti-center">
+        <div>
+          <h1 class="pti-hero">ptiCSS</h1>
+          <em>A tiny unintrusive CSS Framework</em>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="info">
+        <h2>Info</h2>
+        <p><strong>ptiCSS</strong> is different from other CSS Framework as it is unintrusive and apply <strong>ONLY</strong> to element containting a <code class="pti-code">.pti-</code> class.</p>
+        <p>In other words, that means you can use it with any other CSS Framework at the same time on the same page without messing up everything.</p>
+        <h2>Get started</h2>
+        Add this in the <code class="pti-code">head</code> of your page:
+        <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">link</font>&nbsp;<font color="#000066">rel</font><font color="#66cc66">=</font><font color="#ff0000">&quot;stylesheet&quot;</font>&nbsp;<font color="#000066">href</font><font color="#66cc66">=</font><font color="#ff0000">&quot;https://cdn.statically.io/gh/ibbtek/pticss/master/dist/pti.min.css&quot;</font>&gt;</font></blockquote>
+      </section>
+      <section id="components">
+          <h2>Components</h2>
+          <nav>
+            <a class="pti-a" href="#grid">grid</a> - 
+            <a class="pti-a" href="#buttons">buttons</a> - 
+            <a class="pti-a" href="#card">card</a> - 
+            <a class="pti-a" href="#utilities">utilities</a>
+          </nav>
+        <section id="grid">
+          <h3>Grid</h3>
+          <p>The grid system is a fluid system with a max width of 120rem (1200px), that shrinks with the viewport.</p>
+          <p>To start with <strong>ptiCSS</strong>, wrap your content in a <code class="pti-code">.pti-container</code>.</p>
+          <h4>Flexible grid</h4>
+          <p>A simple way to build flexible responsive columns:</p>
+          <ul>
+            <li>Add a <code class="pti-code">.pti-row</code> container</li>
+            <li>Add as many <code class="pti-code">.pti-col</code> elements as you want</li>
+          </ul>
+          <p>Each column will have an <strong>equal width</strong>, in a row. There is no restriction on number of columns, but
+            it is recommended <strong>not</strong> to add more than 12 columns in a row.</p>
+          <div class="pti-row">
+            <div class="pti-col">
+              <div class="pti-card pti-center">.col</div>
+            </div>
+          </div>
+          <div class="pti-row">
+            <div class="pti-col">
+              <div class="pti-card pti-center">.col</div>
+            </div>
+            <div class="pti-col">
+              <div class="pti-card pti-center">.col</div>
+            </div>
+            <div class="pti-col">
+              <div class="pti-card pti-center">.col</div>
+            </div>
+          </div>
+            <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.col<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.col<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.col<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.col<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font></blockquote>
+          <hr>
+          <h4>Sized</h4>
+          <p>You can also specify the size of the columns</p>
+          <ul>
+            <li>Add a <code class="pti-code">.pti-row</code> container</li>
+            <li>Add a <code class="pti-code">.pti-col-n</code> child where <strong>n</strong> can be from 1 to 12</li>
+          </ul>
+          <p>Each column class is named after how many columns you want out of 12. So if you want 4 columns out of 12, use
+            <code class="pti-code">.col-4</code>.</p>
+          <div class="pti-row">
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+            <div class="pti-col-1">
+              <div class="pti-card pti-center">.pti-col-1</div>
+            </div>
+          </div>
+          <div class="pti-row">
+            <div class="pti-col-4">
+              <div class="pti-card pti-center">.pti-col-4</div>
+            </div>
+            <div class="pti-col-4">
+              <div class="pti-card pti-center">.pti-col-4</div>
+            </div>
+            <div class="pti-col-4">
+              <div class="pti-card pti-center">.pti-col-4</div>
+            </div>
+          </div>
+          <div class="pti-row">
+            <div class="pti-col-12">
+              <div class="pti-card pti-center">.pti-col-12</div>
+            </div>
+          </div>
+            <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-1&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-1<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-4&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-4<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-12&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-12<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font></blockquote>
+          <hr>
+          <h4>Responsive grids:</h4>
+          <ul>
+            <li>All columns are 100% for device width &lt; 600px</li>
+            <li><code class="pti-code">.pti-col</code> and <code class="pti-code">.pti-col-N</code> for all device sizes &gt;= 600px</li>
+            <li><code class="pti-code">.pti-col-N-md</code> for &gt;= 900px sizes</li>
+            <li><code class="pti-code">.pti-col-N-lg</code> for &gt;= 1200px sizes</li>
+          </ul>
+          <div class="pti-row">
+            <div class="pti-col-12 pti-col-md-6 pti-col-lg-4">
+              <div class="pti-card pti-center">.pti-col-12.pti-col-md-6.pti-col-lg-4</div>
+            </div>
+            <div class="pti-col-6 pti-col-md-3 pti-col-lg-4">
+              <div class="pti-card pti-center">.pti-col-6.pti-col-md-3.pti-col-lg-4</div>
+            </div>
+            <div class="pti-col-6 pti-col-md-3 pti-col-lg-4">
+              <div class="pti-card pti-center">.pti-col-6.pti-col-md-3.pti-col-lg-4</div>
+            </div>
+          </div>
+          <div class="pti-row">
+            <div class="pti-col pti-col-lg-6">
+              <div class="pti-card pti-center">.pti-col.pti-col-lg-6</div>
+            </div>
+            <div class="pti-col pti-col-lg-3">
+              <div class="pti-card pti-center">.pti-col.pti-col-lg-3</div>
+            </div>
+            <div class="pti-col pti-col-lg-3">
+              <div class="pti-card pti-center">.pti-col.pti-col-lg-3</div>
+            </div>
+          </div>
+            <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-12&nbsp;pti-col-md-6&nbsp;pti-col-lg-4&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-12.pti-col-md-6.pti-col-lg-4<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-6&nbsp;pti-col-md-3&nbsp;pti-col-lg-4&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-6.pti-col-md-3.pti-col-lg-4<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-6&nbsp;pti-col-md-3&nbsp;pti-col-lg-4&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-6.pti-col-md-3.pti-col-lg-4<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&nbsp;pti-col-lg-6&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col.pti-col-lg-6<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&nbsp;pti-col-lg-3&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col.pti-col-lg-3<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&nbsp;pti-col-lg-3&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col.pti-col-lg-3<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font></blockquote>
+          <hr>
+          <h4>Mix-n-Match</h4>
+          <p>You can use a combination of <strong>flexible</strong> and <strong>sized</strong> columns.</p>
+          <p>When using a combination, the sized width column takes the size specified and the remaining is filled in by the
+            flexible column.</p>
+          <div class="pti-row">
+            <div class="pti-col-2">
+              <div class="pti-card pti-center">.pti-col-2</div>
+            </div>
+            <div class="pti-col-2">
+              <div class="pti-card pti-center">.pti-col-2</div>
+            </div>
+            <div class="pti-col">
+              <div class="pti-card pti-center">auto</div>
+            </div>
+            <div class="pti-col-3">
+              <div class="pti-card pti-center">.pti-col-3</div>
+            </div>
+          </div>
+          <div class="pti-row">
+            <div class="pti-col-10">
+              <div class="pti-card pti-center">.pti-col-10</div>
+            </div>
+            <div class="pti-col">
+              <div class="pti-card pti-center">auto</div>
+            </div>
+          </div>
+          <div class="pti-row">
+            <div class="pti-col">
+              <div class="pti-card pti-center">auto</div>
+            </div>
+            <div class="pti-col">
+              <div class="pti-card pti-center">auto</div>
+            </div>
+            <div class="pti-col">
+              <div class="pti-card pti-center">auto</div>
+            </div>
+            <div class="pti-col">
+              <div class="pti-card pti-center">auto</div>
+            </div>
+          </div>
+            <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-2&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-2<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-2&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-2<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>auto<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-3&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-3<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-10&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-10<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>auto<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>auto<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>auto<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>auto<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>auto<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font></blockquote>
+          <hr>
+          <h4>Reverse Direction</h4>
+          <p>Add <code class="pti-code">.pti-reverse</code> to the <code class="pti-code">.pti-row</code> to reverse the column direction. </p>
+          <div class="pti-row pti-reverse">
+            <div class="pti-col-6">
+              <div class="pti-card pti-center">.pti-col-6</div>
+            </div>
+            <div class="pti-col-3">
+              <div class="pti-card pti-center">.pti-col-3</div>
+            </div>
+            <div class="pti-col-3">
+              <div class="pti-card pti-center">.pti-col-3</div>
+            </div>
+          </div>
+            <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-row&nbsp;pti-reverse&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-6&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-6<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-3&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-3<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-col-3&quot;</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&nbsp;pti-center&quot;</font>&gt;</font>.pti-col-3<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font><br/>
+              <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font></blockquote>
+        </section>
+        <br>
+        <section id="buttons">
+          <h3>Buttons</h3>
+          <p><strong>ptiCSS</strong> includes five predefined button styles, each serving its own semantic purpose. It also applies these styles to <code class="pti-code">.pti-input, .pti-button</code> classes, see the complete <router-link class="pti-a" to="/demo">demo</router-link>.</p>
+          <div class="pti-row">
+            <div class="pti-col-4">
+              <div>
+                <p>
+                 <a class="pti-button">Default</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-primary">Primary</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-secondary">Secondary</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-dark">Dark</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-error">Error</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-success">Success</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-outline">Outline</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-outline pti-primary">Primary outline</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-outline pti-secondary">Secondary outline</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-outline pti-dark">Dark outline</a>
+                </p>
+                <p>
+                 <a class="pti-button pti-clear">Clear</a>
+                </p>
+                <p>
+                  <button class="pti-button pti-primary pti-icon">New file 
+                    <img src="https://icongr.am/feather/file.svg?size=16&amp;color=ffffff" alt="icon">
+                  </button>
+                </p>
+                <p>
+                  <button class="pti-button pti-icon-only">
+                    <img src="https://icongr.am/feather/search.svg?size=16">
+                  </button>
+                </p>
+              </div>
+            </div>
+            <div class="pti-col">
+              <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;buttons&quot;</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&quot;</font>&gt;</font>Default<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-primary&quot;</font>&gt;</font>Primary<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-secondary&quot;</font>&gt;</font>Secondary<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-dark&quot;</font>&gt;</font>Dark<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-error&quot;</font>&gt;</font>Error<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-success&quot;</font>&gt;</font>Success<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-outline&quot;</font>&gt;</font>Outline<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-outline&nbsp;pti-primary&quot;</font>&gt;</font>Primary&nbsp;outline<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-outline&nbsp;pti-secondary&quot;</font>&gt;</font>Secondary&nbsp;outline<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-outline&nbsp;pti-dark&quot;</font>&gt;</font>Dark&nbsp;outline<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-clear&quot;</font>&gt;</font>Clear<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">button</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-primary&nbsp;pti-icon&quot;</font>&gt;</font>New&nbsp;file&nbsp;<br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">img</font>&nbsp;<font color="#000066">src</font><font color="#66cc66">=</font><font color="#ff0000">&quot;https://icongr.am/feather/file.svg?size=16&amp;amp;color=ffffff&quot;</font>&nbsp;<font color="#000066">alt</font><font color="#66cc66">=</font><font color="#ff0000">&quot;icon&quot;</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">button</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">button</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-icon-only&quot;</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">img</font>&nbsp;<font color="#000066">src</font><font color="#66cc66">=</font><font color="#ff0000">&quot;https://icongr.am/feather/search.svg?size=16&quot;</font>&gt;</font><br/>
+                &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">button</font>&gt;</font><br/>
+                <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font></blockquote>
+            </div>
+          </div>
+        </section>
+          <br>
+          <section id="card">
+            <h3>Card</h3>
+            <p>The <code class="pti-code">.pti-card</code> element is simply a container with a shadow, a border, a radius, and some padding.</p>
+            <p>You can add a simple <code class="pti-code">header</code> element with a heading tag in it to add a heading to the card.</p>
+            <div class="pti-row pti-center">
+              <div class="pti-col">
+                <div class="pti-card">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque cumque velit id.</p>
+                </div>
+              </div>
+              <div class="pti-col">
+                <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&quot;</font>&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">p</font>&gt;</font>Lorem&nbsp;ipsum&nbsp;dolor&nbsp;...<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">p</font>&gt;</font><br/>
+                  <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font></blockquote>
+              </div>
+            </div>
+            <hr>
+            <br>
+            <div class="pti-row pti-center">
+              <div class="pti-col-6">
+                <div class="pti-card">
+                  <header>
+                    <h2>Card title</h2>
+                  </header>
+                  <p>A nisi ullam impedit molestiae, sapiente id, numquam accusantium eius cum, iste eum iusto blanditiis doloribus beatae. Molestias iste explicabo libero nam, voluptas harum ipsum quod velit enim. Quae, cupiditate?</p>
+                  <footer class="pti-right">
+                    <a class="pti-button pti-primary">Submit</a>
+                    <a class="pti-button">Cancel</a>
+                  </footer>
+                </div>
+              </div>
+            </div>
+            <div class="pti-row pti-center">
+              <div class="pti-col">
+                <blockquote class="pti-blockquote"><font color="#009900">&lt;<font color="#000000">div</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-card&quot;</font>&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;header&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">h2</font>&gt;</font>Card&nbsp;title<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">h2</font>&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font>header&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">p</font>&gt;</font>A&nbsp;nisi...&nbsp;Quae,&nbsp;cupiditate?<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">p</font>&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;footer&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-right&quot;</font>&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">href</font><font color="#66cc66">=</font><font color="#ff0000">&quot;#!&quot;</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&nbsp;pti-primary&quot;</font>&gt;</font>Submit<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#000000">a</font>&nbsp;<font color="#000066">href</font><font color="#66cc66">=</font><font color="#ff0000">&quot;#!&quot;</font>&nbsp;<font color="#000066">class</font><font color="#66cc66">=</font><font color="#ff0000">&quot;pti-button&quot;</font>&gt;</font>Cancel<font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">a</font>&gt;</font><br/>
+                  &nbsp;&nbsp;&nbsp;<font color="#009900">&lt;<font color="#66cc66">/</font>footer&gt;</font><br/>
+                  <font color="#009900">&lt;<font color="#66cc66">/</font><font color="#000000">div</font>&gt;</font></blockquote>
+              </div>
+            </div>
+        </section>
+        <br>
+        <section id="utilities">
+          <h3>Utilities</h3>
+          <p>You can apply these helper classes to almost any element, in order to alter its style.</p>
+          <ul class="pti-ul">
+            <li><code class="pti-code">pti-text-primary</code> - <span class="pti-text-primary">Primary text</span></li>
+            <li><code class="pti-code">pti-text-light</code> - <span class="pti-text-light">Light text</span></li>
+            <li><code class="pti-code">pti-text-white</code> - <span class="pti-bg-primary pti-text-white">White text</span></li>
+            <li><code class="pti-code">pti-text-dark</code> - <span class="pti-text-dark">Dark text</span></li>
+            <li><code class="pti-code">pti-text-grey</code> - <span class="pti-text-grey">Grey text</span></li>
+            <li><code class="pti-code">pti-text-error</code> - <span class="pti-text-error">Error text</span></li>
+            <li><code class="pti-code">pti-text-warning</code> - <span class="pti-text-error">Warning text</span></li>
+            <li><code class="pti-code">pti-text-success</code> - <span class="pti-text-success">Success text</span></li>
+            <li><code class="pti-code">pti-bg-primary</code> - <span class="pti-bg-primary">Primary background</span></li>
+            <li><code class="pti-code">pti-bg-light</code> - <span class="pti-bg-light">Light background</span></li>
+            <li><code class="pti-code">pti-bg-dark</code> - <span class="pti-bg-dark">Dark background</span></li>
+            <li><code class="pti-code">pti-bg-grey</code> - <span class="pti-bg-grey">Grey background</span></li>
+            <li><code class="pti-code">pti-bg-error</code> - <span class="pti-bg-error">Error background</span></li>
+            <li><code class="pti-code">pti-bg-warning</code> - <span class="pti-bg-warning">Warning background</span></li>
+            <li><code class="pti-code">pti-bg-success</code> - <span class="pti-bg-success">Success background</span></li>
+            <li><code class="pti-code">pti-bd-primary</code> - <span class="pti-bd-primary">Primary border</span></li>
+            <li><code class="pti-code">pti-bd-light</code> - <span class="pti-bd-light">Light border</span></li>
+            <li><code class="pti-code">pti-bd-dark</code> - <span class="pti-bd-dark">Dark border</span></li>
+            <li><code class="pti-code">pti-bd-grey</code> - <span class="pti-bd-grey">Grey border</span></li>
+            <li><code class="pti-code">pti-bd-error</code> - <span class="pti-bd-error">Error border</span></li>
+            <li><code class="pti-code">pti-bd-warning</code> - <span class="pti-bd-error">Warning border</span></li>
+            <li><code class="pti-code">pti-bd-success</code> - <span class="pti-bd-success">Success border</span></li>
+            <li><code class="pti-code">pti-pull-right</code> - floats an element to the right</li>
+            <li><code class="pti-code">pti-pull-left</code> - floats an element to the left</li>
+            <li><code class="pti-code">pti-text-center</code> - center aligns text</li>
+            <li><code class="pti-code">pti-text-left</code> - left aligns text</li>
+            <li><code class="pti-code">pti-text-right</code> - right aligns text</li>
+            <li><code class="pti-code">pti-text-uppercase</code> - text to uppercase</li>
+            <li><code class="pti-code">pti-text-lowercase</code> - text to lowercase</li>
+            <li><code class="pti-code">pti-text-capitalize</code> - capitalizes text</li>
+            <li><code class="pti-code">pti-full-screen</code> - makes the element 100% view height</li>
+            <li><code class="pti-code">pti-full-width</code> - make the element 100% width</li>
+            <li><code class="pti-code">pti-vertical-align</code> - vertically centers element using flex</li>
+            <li><code class="pti-code">pti-horizontal-align</code> - horizontal centers element using flex</li>
+            <li><code class="pti-code">pti-center</code> - centers element using flex</li>
+            <li><code class="pti-code">pti-right</code> - right aligns element using flex</li>
+            <li><code class="pti-code">pti-left</code> - left aligns element using flex</li>
+            <li><code class="pti-code">pti-fixed</code> - fixed positioned element</li>
+            <li><code class="pti-code">pti-clearfix</code> - clears the floats</li>
+            <li><code class="pti-code">pti-hidden</code> - hides the element completely</li>
+            <li><code class="pti-code">pti-hide-xs</code> - hides the element for screens &lt;600px</li>
+            <li><code class="pti-code">pti-hide-sm</code> - hides the element for screens &gt;=600px and &lt;900px</li>
+            <li><code class="pti-code">pti-hide-md</code> - hides the element for screens &gt;=900px and &lt;1200px</li>
+            <li><code class="pti-code">pti-hide-lg</code> - hides the element for screens &gt;=1200px</li>
+            <li><code class="pti-code">pti-paddingless</code> - removes any padding</li>
+            <li><code class="pti-code">pti-marginless</code> - removes any margin</li>
+            <li><code class="pti-code">pti-{m/p}-{t/b/l/r}-{sm/md/lg}</code> - <span>{Margin/Padding} {top/bottom/left/right} {5/10/15}px</span></li>
+          </ul>
+        </section>
+      </section>
+    </main>
+    <br>
+    <hr>
+    <br>
+    <footer class="pti-text-center">
+      <p><small>More info <a href="https://github.com/ibbtek/pticss">here</a></small></p>
+      <a href="https://www.buymeacoffee.com/HEazcCDFS" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/yellow_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+      <p class="repo-owner">Made with &#9749; by <a href="https://github.com/ibbtek/">ibbtek</a>.</p>
+    </footer>
+  </div>
+</script>
+
+<!-- DEMO PAGE TEMPLATE -->
+<script type="text/x-template" id="pticss-demo">
+  <div>
+    <header>
+      <h1>ptiCSS</h1>
+      <p>
+        A tiny unintrusive CSS framework.
+      </p>
+    </header>
+    <div>
+      <ul>
+        <li>
+          <a class="pti-a" href="#text">Text</a>
+          <ul>
+            <li><a class="pti-a" href="#text__headings">Headings</a></li>
+            <li><a class="pti-a" href="#text__paragraphs">Paragraphs</a></li>
+            <li><a class="pti-a" href="#text__blockquotes">Blockquotes</a></li>
+            <li><a class="pti-a" href="#text__lists">Lists</a></li>
+            <li><a class="pti-a" href="#text__hr">Horizontal rules</a></li>
+            <li><a class="pti-a" href="#text__tables">Table</a></li>
+            <li><a class="pti-a" href="#text__code">Code</a></li>
+            <li><a class="pti-a" href="#text__inline">Inline elements</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="pti-a" href="#embedded">Embedded content</a>
+          <ul>
+            <li><a class="pti-a" href="#embedded__images">Images</a></li>
+            <li><a class="pti-a" href="#embedded__audio">Audio</a></li>
+            <li><a class="pti-a" href="#embedded__video">Video</a></li>
+            <li><a class="pti-a" href="#embedded__canvas">Canvas</a></li>
+            <li><a class="pti-a" href="#embedded__meter">Meter</a></li>
+            <li><a class="pti-a" href="#embedded__progress">Progress</a></li>
+            <li><a class="pti-a" href="#embedded__svg">Inline SVG</a></li>
+            <li><a class="pti-a" href="#embedded__iframe">IFrames</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="pti-a" href="#forms">Form elements</a>
+          <ul>
+            <li><a class="pti-a" href="#forms__input">Input fields</a></li>
+            <li><a class="pti-a" href="#forms__select">Select menus</a></li>
+            <li><a class="pti-a" href="#forms__checkbox">Checkboxes</a></li>
+            <li><a class="pti-a" href="#forms__radio">Radio buttons</a></li>
+            <li><a class="pti-a" href="#forms__textareas">Textareas</a></li>
+            <li><a class="pti-a" href="#forms__html5">HTML5 inputs</a></li>
+            <li><a class="pti-a" href="#forms__action">Action buttons</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <main>
+      <section id="text">
+        <header>
+          <h1>Text</h1></header>
+        <article id="text__headings">
+          <header>
+            <h1>Headings</h1>
+          </header>
+          <div>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+          </div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="text__paragraphs">
+          <header>
+            <h1>Paragraphs</h1></header>
+          <div>
+            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required
+              by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+          </div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="text__blockquotes">
+          <header>
+            <h1>Blockquotes</h1></header>
+          <div>
+            <blockquote class="pti-blockquote">
+              <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+              <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+              <cite><a class="pti-a" href="#!">Said no one, ever.</a></cite>
+            </blockquote>
+          </div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="text__lists">
+          <header>
+            <h1>Lists</h1></header>
+          <div>
+            <h3>Definition list</h3>
+            <dl>
+              <dt>Definition List Title</dt>
+              <dd>This is a definition list division.</dd>
+            </dl>
+            <h3>Ordered List</h3>
+            <ol>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+              <li>List Item 3</li>
+            </ol>
+            <h3>Unordered List</h3>
+            <ul>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+              <li>List Item 3</li>
+            </ul>
+          </div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="text__hr">
+          <header>
+            <h1>Horizontal rules</h1></header>
+          <div>
+            <hr>
+          </div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="text__tables">
+          <header>
+            <h1>Table</h1></header>
+          <table class="pti-table">
+            <caption>Table Caption</caption>
+            <thead>
+              <tr>
+                <th>Table Heading 1</th>
+                <th>Table Heading 2</th>
+                <th>Table Heading 3</th>
+                <th>Table Heading 4</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Table Footer 1</th>
+                <th>Table Footer 2</th>
+                <th>Table Footer 3</th>
+                <th>Table Footer 4</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td>Table Cell 1</td>
+                <td>Table Cell 2</td>
+                <td>Table Cell 3</td>
+                <td>Table Cell 4</td>
+              </tr>
+              <tr>
+                <td>Table Cell 1</td>
+                <td>Table Cell 2</td>
+                <td>Table Cell 3</td>
+                <td>Table Cell 4</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <h4>Table with strips. Just add the <code class="pti-code">pti-striped</code> class to  <code class="pti-code">&lt;table&gt;</code>.</h4>
+          <table class="pti-table pti-striped">
+            <caption>Table Caption</caption>
+            <thead>
+              <tr>
+                <th>Table Heading 1</th>
+                <th>Table Heading 2</th>
+                <th>Table Heading 3</th>
+                <th>Table Heading 4</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Table Footer 1</th>
+                <th>Table Footer 2</th>
+                <th>Table Footer 3</th>
+                <th>Table Footer 4</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td>Table Cell 1</td>
+                <td>Table Cell 2</td>
+                <td>Table Cell 3</td>
+                <td>Table Cell 4</td>
+              </tr>
+              <tr>
+                <td>Table Cell 1</td>
+                <td>Table Cell 2</td>
+                <td>Table Cell 3</td>
+                <td>Table Cell 4</td>
+              </tr>
+              <tr>
+                <td>Table Cell 1</td>
+                <td>Table Cell 2</td>
+                <td>Table Cell 3</td>
+                <td>Table Cell 4</td>
+              </tr>
+              <tr>
+                <td>Table Cell 1</td>
+                <td>Table Cell 2</td>
+                <td>Table Cell 3</td>
+                <td>Table Cell 4</td>
+              </tr>
+            </tbody>
+          </table>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="text__code">
+          <header>
+            <h1>Code</h1></header>
+          <div>
+            <p><strong>Keyboard input:</strong> <kbd class="pti-kbd">Cmd</kbd></p>
+            <p><strong>Inline code:</strong> <code class="pti-code">&lt;div&gt;code&lt;/div&gt;</code></p>
+            <p><strong>Sample output:</strong> <samp class="pti-samp">This is sample output from a computer program.</samp></p>
+            <h2>Pre-formatted text</h2>
+            <pre class="pti-pre">P R E F O R M A T T E D T E X T
+            ! " # $ % &amp; ' ( ) * + , - . /
+            0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+            @ A B C D E F G H I J K L M N O
+            P Q R S T U V W X Y Z [ \ ] ^ _
+            ` a b c d e f g h i j k l m n o
+            p q r s t u v w x y z { | } ~
+            ~ 0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ </pre>
+            <pre class="pti-pre"><code class="pti-code">&#x3C;h2&#x3E;Pre-formatted text&#x3C;/h2&#x3E;</code></pre>
+          </div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="text__inline">
+          <header>
+            <h1>Inline elements</h1></header>
+          <div>
+            <p><a class="pti-a" href="#!">This is a text link</a>.</p>
+            <p><strong>Strong is used to indicate strong importance.</strong></p>
+            <p><em>This text has added emphasis.</em></p>
+            <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
+            <p>The <i>i element</i> is text that is offset from the normal text.</p>
+            <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
+            <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+            <p><s>This text has a strikethrough</s>.</p>
+            <p>Superscript<sup>®</sup>.</p>
+            <p>Subscript for things like H<sub>2</sub>O.</p>
+            <p><small>This small text is small for for fine print, etc.</small></p>
+            <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+            <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
+            <p><cite>This is a citation.</cite></p>
+            <p>The <dfn>dfn element</dfn> indicates a definition.</p>
+            <p>The <mark>mark element</mark> indicates a highlight.</p>
+            <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+            <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+          </div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+      </section>
+
+      <section id="embedded">
+        <header>
+          <h1>Embedded content</h1>
+        </header>
+        <article id="embedded__images">
+          <header>
+            <h2>Images</h2>
+          </header>
+          <div>
+            <h3>No <code class="pti-code">&lt;figure&gt;</code> element</h3>
+            <p><img class="pti-img" src="http://unsplash.it/480/480" alt="Image alt text"></p>
+            <h3>Wrapped in a <code class="pti-code">&lt;figure&gt;</code> element, no <code class="pti-code">&lt;figcaption&gt;</code></h3>
+            <figure><img class="pti-img" src="http://unsplash.it/420/420" alt="Image alt text"></figure>
+            <h3>Wrapped in a <code class="pti-code">&lt;figure&gt;</code> element, with a <code class="pti-code">&lt;figcaption&gt;</code></h3>
+            <figure>
+              <img class="pti-img" src="http://unsplash.it/420/420" alt="Image alt text">
+              <figcaption>Here is a caption for this image.</figcaption>
+            </figure>
+          </div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__audio">
+          <header>
+            <h2>Audio</h2></header>
+          <div><audio controls="">audio</audio></div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__video">
+          <header>
+            <h2>Video</h2></header>
+          <div><video controls="">video</video></div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__canvas">
+          <header>
+            <h2>Canvas</h2></header>
+          <div><canvas>canvas</canvas></div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__meter">
+          <header>
+            <h2>Meter</h2></header>
+          <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__progress">
+          <header>
+            <h2>Progress</h2>
+          </header>
+          <div><progress>progress</progress></div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__svg">
+          <header>
+            <h2>Inline SVG</h2>
+          </header>
+          <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+        <article id="embedded__iframe">
+          <header>
+            <h2>IFrame</h2>
+          </header>
+          <div><iframe class="pti-iframe" src="./index.html" height="300"></iframe></div>
+          <footer>
+            <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          </footer>
+        </article>
+      </section>
+      <section id="forms">
+        <header>
+          <h1>Form elements</h1>
+        </header>
+        <form>
+          <fieldset class="pti-fieldset" id="forms__input">
+            <legend class="pti-legend">Input fields</legend>
+            <p>
+              <label for="input__text">Text Input</label>
+              <input id="input__text" type="text" class="pti-input" placeholder="Text Input">
+            </p>
+            <p>
+              <label for="input__password">Password</label>
+              <input id="input__password" type="password" class="pti-input" placeholder="Type your Password">
+            </p>
+            <p>
+              <label for="input__webaddress">Web Address</label>
+              <input id="input__webaddress" type="url" class="pti-input" placeholder="http://yoursite.com">
+            </p>
+            <p>
+              <label for="input__emailaddress">Email Address</label>
+              <input id="input__emailaddress" type="email" class="pti-input" placeholder="name@email.com">
+            </p>
+            <p>
+              <label for="input__phone">Phone Number</label>
+              <input id="input__phone" type="tel" class="pti-input" placeholder="(999) 999-9999">
+            </p>
+            <p>
+              <label for="input__search">Search</label>
+              <input id="input__search" type="search" class="pti-input" placeholder="Enter Search Term">
+            </p>
+            <p>
+              <label for="input__text2">Number Input</label>
+              <input id="input__text2" type="number" class="pti-input" placeholder="Enter a Number">
+            </p>
+            <p>
+              <label for="input__text3" class="pti-error">Error</label>
+              <input id="input__text3" class="pti-input pti-error" type="text" placeholder="Text Input">
+            </p>
+            <p>
+              <label for="input__text4" class="pti-success">Valid</label>
+              <input id="input__text4" class="pti-input pti-success" type="text" placeholder="Text Input">
+            </p>
+            <p>
+              <label for="input__text5">Disabled Text Input</label>
+              <input id="input__text5" type="text" class="pti-input" placeholder="Disabled Text Input" disabled>
+            </p>
+            <p class="pti-grouped">
+              <input class="pti-input" type="search" name="input__text6" id="input__text6" placeholder="Search">
+              <button class="pti-button pti-icon-only"><img class="pti-img" src="https://icongr.am/feather/search.svg?size=16"></button>
+            </p>
+            <p class="pti-grouped">
+              <input type="text" name="input__text7" id="input__text7" class="pti-input" placeholder="Username">
+              <input type="text" name="input__text8" id="input__text8" class="pti-input" placeholder="Password">
+              <button class="pti-button pti-primary">Submit</button>
+            </p>
+          </fieldset>
+          <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          <fieldset class="pti-fieldset" id="forms__select">
+            <legend class="pti-legend">Select menus</legend>
+            <p>
+              <label for="select">Select</label>
+              <select class="pti-select" id="select">
+                  <optgroup label="Option Group">
+                    <option>Option One</option>
+                    <option>Option Two</option>
+                    <option>Option Three</option>
+                  </optgroup>
+                </select>
+            </p>
+          </fieldset>
+          <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          <fieldset class="pti-fieldset" id="forms__checkbox">
+            <legend class="pti-legend">Checkboxes</legend>
+            <ul class="list list--bare">
+              <li><label for="checkbox1"><input class="pti-input" id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label></li>
+              <li><label for="checkbox2"><input class="pti-input" id="checkbox2" name="checkbox" type="checkbox"> Choice B</label></li>
+              <li><label for="checkbox3"><input class="pti-input" id="checkbox3" name="checkbox" type="checkbox"> Choice C</label></li>
+            </ul>
+          </fieldset>
+          <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          <fieldset class="pti-fieldset" id="forms__radio">
+            <legend class="pti-legend">Radio buttons</legend>
+            <ul class="list list--bare">
+              <li><label for="radio1"><input class="pti-input" id="radio1" name="radio" type="radio" checked="checked"> Option 1</label></li>
+              <li><label for="radio2"><input class="pti-input" id="radio2" name="radio" type="radio"> Option 2</label></li>
+              <li><label for="radio3"><input class="pti-input" id="radio3" name="radio" type="radio"> Option 3</label></li>
+            </ul>
+          </fieldset>
+          <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          <fieldset class="pti-fieldset" id="forms__textareas">
+            <legend class="pti-legend">Textareas</legend>
+            <p>
+              <label for="textarea">Textarea</label>
+              <textarea id="textarea" class="pti-textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
+            </p>
+          </fieldset>
+          <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          <fieldset class="pti-fieldset" id="forms__html5">
+            <legend class="pti-legend">HTML5 inputs</legend>
+            <p>
+              <label for="ic">Color input</label>
+              <input class="pti-input" type="color" id="ic" value="#000000">
+            </p>
+            <p>
+              <label for="in">Number input</label>
+              <input class="pti-input" type="number" id="in" min="0" max="10" value="5">
+            </p>
+            <p>
+              <label for="ir">Range input</label>
+              <input class="pti-input" type="range" id="ir" value="10">
+            </p>
+            <p>
+              <label for="idd">Date input</label>
+              <input class="pti-input" type="date" id="idd" value="1970-01-01">
+            </p>
+            <p>
+              <label for="idm">Month input</label>
+              <input class="pti-input" type="month" id="idm" value="1970-01">
+            </p>
+            <p>
+              <label for="idw">Week input</label>
+              <input class="pti-input" type="week" id="idw" value="1970-W01">
+            </p>
+            <p>
+              <label for="idt">Datetime input</label>
+              <input class="pti-input" type="datetime" id="idt" value="1970-01-01T00:00:00Z">
+            </p>
+            <p>
+              <label for="idtl">Datetime-local input</label>
+              <input class="pti-input" type="datetime-local" id="idtl" value="1970-01-01T00:00">
+            </p>
+          </fieldset>
+          <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+          <fieldset class="pti-fieldset" id="forms__action">
+            <legend class="pti-legend">Action buttons</legend>
+            <div class="pti-row">
+              <div class="pti-col">
+                <p>
+                  <button class="pti-button" type="submit">&lt;button.pti-button type=submit&gt;</button>
+                </p>
+                <p>
+                  <button class="pti-button" type="button">&lt;button.pti-button type=button&gt;</button>
+                </p>
+                <p>
+                  <button class="pti-button" type="reset">&lt;button.pti-button type=reset&gt;</button>
+                </p>
+                <p>
+                  <button class="pti-button" type="button" disabled>&lt;button.pti-button disabled&gt;</button>
+                </p>
+                <p>
+                  <button type="button" class="pti-button pti-primary pti-icon">New file
+                    <img class="pti-img" src="https://icongr.am/feather/file.svg?size=16&amp;color=ffffff" alt="icon">
+                  </button>
+                </p>
+                <p>
+                  <button class="pti-button pti-icon-only">
+                    <img class="pti-img" src="https://icongr.am/feather/search.svg?size=16">
+                  </button>
+                </p>
+              </div>
+              <div class="pti-col">
+                <p>
+                  <a href="#" class="pti-button">a.pti-button</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-primary">a.pti-button.pti-primary</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-secondary">a.pti-button.pti-secondary</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-dark">a.pti-button.pti-dark</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-error">a.pti-button.pti-error</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-success">a.pti-button.pti-success</a>
+                </p>
+              </div>
+              <div class="pti-col">
+                <p>
+                  <a href="#" class="pti-button pti-outline">a.pti-button.pti-outline</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-outline pti-primary">a.pti-button.pti-outline.pti-primary</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-outline pti-secondary">a.pti-button.pti-outline.pti-secondary</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-outline pti-dark">a.pti-button.pti-outline.pti-dark</a>
+                </p>
+                <p>
+                  <a href="#" class="pti-button pti-clear">a.pti-button.clear</a>
+                </p>
+              </div>
+              <div class="pti-col">
+                <p>
+                  <input class="pti-button" type="submit" value="<input.pti-button type=submit>">
+                </p>
+                <p>
+                  <input class="pti-button" type="button" value="<input.pti-button type=button>">
+                </p>
+                <p>
+                  <input class="pti-button" type="reset" value="<input.pti-button type=reset>">
+                </p>
+                <p>
+                  <input class="pti-button" type="submit" value="<input.pti-button disabled>" disabled>
+                </p>
+              </div>
+            </div>
+          </fieldset>
+          <p><a class="pti-a" href="#top">[GO TO TOP]</a></p>
+        </form>
+      </section>
+    </main>
+  </div>
+</script>
+
+<!-- VUEJS -->
+<script>
+var app = new Vue({
+  el: '#app',
+  router,
+  methods: {
+    closeMenu () {
+      document.querySelector('#responsive-menu').checked = false
+    },
+    goTo (path) {
+      this.$router.push(path)
+      this.closeMenu()
+    }
+  }
+})
+</script>
+</html>
