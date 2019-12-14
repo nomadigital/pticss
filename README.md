@@ -14,7 +14,7 @@ In other words, that means you can use it with any other CSS Framework at the sa
 
 ## Get started
 
-Please check the [docs](https://nomadmuslim.github.io/pticss)
+Please check the [docs](https://no-m-ad.github.io/pticss)
 
 ## Credits
 
